@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_graph"
+    app:startDestination="@id/brandSelectionFragment">
+
+
+    <fragment
+        android:id="@+id/brandSelectionFragment"
+        android:name="com.deu.csc.predictor.ui.BrandSelectionFragment"
+        android:label="Marka Seç" >
+        <action
+            android:id="@+id/action_brandSelectionFragment_to_seriesSelectionFragment"
+            app:destination="@id/seriesSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/seriesSelectionFragment"
+        android:name="com.deu.csc.predictor.ui.SeriesSelectionFragment"
+        android:label="Seri Seç" >
+        <action
+            android:id="@+id/action_seriesSelectionFragment_to_modelSelectionFragment"
+            app:destination="@id/modelSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/modelSelectionFragment"
+        android:name="com.deu.csc.predictor.ui.ModelSelectionFragment"
+        android:label="Model Seç" >
+        <action
+            android:id="@+id/action_modelSelectionFragment_to_kmSelectionFragment"
+            app:destination="@id/yearSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/yearSelectionFragment"
+        android:name="com.deu.csc.predictor.ui.YearSelectionFragment"
+        android:label="Yıl Seç" >
+        <action
+            android:id="@+id/action_yearSelectionFragment_to_kmSelectionFragment"
+            app:destination="@id/kmSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kmSelectionFragment"
+        android:name="com.deu.csc.predictor.ui.KmSelectionFragment"
+        android:label="Kilometre Seç" >
+        <action
+            android:id="@+id/action_kmSelectionFragment_to_tramerSelectionFragment"
+            app:destination="@id/tramerSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tramerSelectionFragment"
+        android:name="com.deu.csc.predictor.ui.TramerSelectionFragment"
+        android:label="Tramer Seç" >
+        <action
+            android:id="@+id/action_tramerSelectionFragment_to_transmissionSelectionFragment"
+            app:destination="@id/transmissionSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transmissionSelectionFragment"
+        android:name="com.deu.csc.predictor.ui.TransmissionSelectionFragment"
+        android:label="Vites Seç" >
+        <action
+            android:id="@+id/action_transmissionSelectionFragment_to_fuelConsumeSelectionFragment"
+            app:destination="@id/fuelConsumeSelectionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fuelConsumeSelectionFragment"
+        android:name="com.deu.csc.predictor.ui.FuelConsumeSelectionFragment"
+        android:label="Yakıt Tüketimi" >
+        <action
+            android:id="@+id/action_fuelConsumeSelectionFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="com.deu.csc.predictor.ui.LoadingFragment"
+        android:label="LoadingFragment" >
+        <action
+            android:id="@+id/action_loadingFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.deu.csc.predictor.ui.ResultFragment"
+        android:label="Fiyat Tahmini" >
+        <argument
+            android:name="result"
+            app:argType="string" />
+    </fragment>
+</navigation>

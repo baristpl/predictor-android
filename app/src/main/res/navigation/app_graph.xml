@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/brandSelectionFragment"
         android:name="com.deu.csc.predictor.ui.BrandSelectionFragment"
-        android:label="Marka Seç" >
+        android:label="Marka" >
         <action
             android:id="@+id/action_brandSelectionFragment_to_seriesSelectionFragment"
             app:destination="@id/seriesSelectionFragment" />
@@ -16,7 +16,7 @@
     <fragment
         android:id="@+id/seriesSelectionFragment"
         android:name="com.deu.csc.predictor.ui.SeriesSelectionFragment"
-        android:label="Seri Seç" >
+        android:label="Seri" >
         <action
             android:id="@+id/action_seriesSelectionFragment_to_modelSelectionFragment"
             app:destination="@id/modelSelectionFragment" />
@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/modelSelectionFragment"
         android:name="com.deu.csc.predictor.ui.ModelSelectionFragment"
-        android:label="Model Seç" >
+        android:label="Model" >
         <action
             android:id="@+id/action_modelSelectionFragment_to_kmSelectionFragment"
             app:destination="@id/yearSelectionFragment" />
@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/yearSelectionFragment"
         android:name="com.deu.csc.predictor.ui.YearSelectionFragment"
-        android:label="Yıl Seç" >
+        android:label="Yıl" >
         <action
             android:id="@+id/action_yearSelectionFragment_to_kmSelectionFragment"
             app:destination="@id/kmSelectionFragment" />
@@ -40,34 +40,35 @@
     <fragment
         android:id="@+id/kmSelectionFragment"
         android:name="com.deu.csc.predictor.ui.KmSelectionFragment"
-        android:label="Kilometre Seç" >
+        android:label="Kilometre" >
         <action
             android:id="@+id/action_kmSelectionFragment_to_tramerSelectionFragment"
-            app:destination="@id/tramerSelectionFragment" />
+            app:destination="@id/guaranteeSelectionFragment" />
     </fragment>
     <fragment
-        android:id="@+id/tramerSelectionFragment"
-        android:name="com.deu.csc.predictor.ui.TramerSelectionFragment"
-        android:label="Tramer Seç" >
+        android:id="@+id/guaranteeSelectionFragment"
+        android:name="com.deu.csc.predictor.ui.GuaranteeSelectionFragment"
+        android:label="Garanti Durumu" >
         <action
-            android:id="@+id/action_tramerSelectionFragment_to_transmissionSelectionFragment"
+            android:id="@+id/action_guaranteeSelectionFragment_to_transmissionSelectionFragment"
             app:destination="@id/transmissionSelectionFragment" />
     </fragment>
     <fragment
         android:id="@+id/transmissionSelectionFragment"
         android:name="com.deu.csc.predictor.ui.TransmissionSelectionFragment"
-        android:label="Vites Seç" >
+        android:label="Vites Tipi" >
         <action
             android:id="@+id/action_transmissionSelectionFragment_to_fuelConsumeSelectionFragment"
-            app:destination="@id/fuelConsumeSelectionFragment" />
+            app:destination="@id/powerSelectionFragment" />
     </fragment>
     <fragment
-        android:id="@+id/fuelConsumeSelectionFragment"
-        android:name="com.deu.csc.predictor.ui.FuelConsumeSelectionFragment"
-        android:label="Yakıt Tüketimi" >
+        android:id="@+id/powerSelectionFragment"
+        android:name="com.deu.csc.predictor.ui.PowerSelectionFragment"
+        android:label="Motor Gücü" >
+
         <action
-            android:id="@+id/action_fuelConsumeSelectionFragment_to_loadingFragment"
-            app:destination="@id/loadingFragment" />
+            android:id="@+id/action_powerSelectionFragment_to_mtvSelectionFragment"
+            app:destination="@id/mtvSelectionFragment" />
     </fragment>
     <fragment
         android:id="@+id/loadingFragment"
@@ -80,9 +81,17 @@
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.deu.csc.predictor.ui.ResultFragment"
-        android:label="Fiyat Tahmini" >
+        android:label="Fiyat" >
         <argument
             android:name="result"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/mtvSelectionFragment"
+        android:name="com.deu.csc.predictor.ui.MtvSelectionFragment"
+        android:label="Motorlu Taşıtlar Vergisi" >
+        <action
+            android:id="@+id/action_mtvSelectionFragment_to_loadingFragment"
+            app:destination="@id/loadingFragment" />
     </fragment>
 </navigation>

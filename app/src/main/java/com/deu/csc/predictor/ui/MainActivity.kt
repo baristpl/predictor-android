@@ -50,15 +50,6 @@ class MainActivity : AppCompatActivity() {
             binding.appbar.isVisible = shouldBeVisible
         }
 
-        binding.toolbar.setOnMenuItemClickListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.edit -> {
-                    true
-                }
-                else -> false
-            }
-        }
-
         supportActionBar?.setDisplayShowTitleEnabled(true)
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
 

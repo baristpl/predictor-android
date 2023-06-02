@@ -5,13 +5,12 @@ import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.deu.csc.predictor.R
-import com.deu.csc.predictor.databinding.FragmentFuelConsumeSelectionBinding
-import com.deu.csc.predictor.databinding.FragmentKmSelectionBinding
+import com.deu.csc.predictor.databinding.FragmentPowerSelectionBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FuelConsumeSelectionFragment :
-    BaseFragment<FragmentFuelConsumeSelectionBinding>(FragmentFuelConsumeSelectionBinding::inflate) {
+class PowerSelectionFragment :
+    BaseFragment<FragmentPowerSelectionBinding>(FragmentPowerSelectionBinding::inflate) {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -29,9 +28,9 @@ class FuelConsumeSelectionFragment :
     }
 
     private fun completeSelection() {
-        val fuelConsume = binding.editText.text.toString()
-        mainViewModel.selectFuelConsumption(fuelConsume)
-        findNavController().navigate(R.id.loadingFragment)
+        val power = binding.editText.text.toString()
+        mainViewModel.selectPower(power)
+        findNavController().navigate(R.id.mtvSelectionFragment)
     }
 
     private fun updateContinueButtonEnabled(hasAnyText: Boolean) {

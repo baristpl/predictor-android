@@ -24,21 +24,21 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="Tramer Bilgisi Giriniz"
+        android:text="Aracın garanti bilgisini giriniz:"
         android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
         app:layout_constraintEnd_toEndOf="@id/end_guideline"
         app:layout_constraintStart_toStartOf="@id/start_guideline"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/tramer_exist_card"
+        android:id="@+id/has_guarantee_card"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
         android:checkable="true"
         app:cardCornerRadius="16dp"
         app:cardElevation="0dp"
-        app:layout_constraintBottom_toTopOf="@id/no_tramer_card"
+        app:layout_constraintBottom_toTopOf="@id/no_guarantee_card"
         app:layout_constraintEnd_toEndOf="@id/end_guideline"
         app:layout_constraintStart_toStartOf="@id/start_guideline"
         app:layout_constraintTop_toBottomOf="@id/header"
@@ -47,96 +47,36 @@
         app:strokeWidth="2dp">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tramer_exist_text"
+            android:id="@+id/has_guarantee_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="Tramer kaydı var."
+            android:text="Garantisi var."
             android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/no_tramer_card"
+        android:id="@+id/no_guarantee_card"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginVertical="28dp"
         android:checkable="true"
         app:cardCornerRadius="16dp"
         app:cardElevation="0dp"
-        app:layout_constraintBottom_toTopOf="@id/no_info_card"
-        app:layout_constraintEnd_toEndOf="@id/end_guideline"
-        app:layout_constraintStart_toStartOf="@id/start_guideline"
-        app:layout_constraintTop_toBottomOf="@id/tramer_exist_card"
-        app:strokeWidth="2dp">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/no_tramer_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="Tramer kaydı yok."
-            android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/no_info_card"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:checkable="true"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="0dp"
         app:layout_constraintBottom_toTopOf="@id/continue_button"
         app:layout_constraintEnd_toEndOf="@id/end_guideline"
         app:layout_constraintStart_toStartOf="@id/start_guideline"
-        app:layout_constraintTop_toBottomOf="@id/no_tramer_card"
+        app:layout_constraintTop_toBottomOf="@id/has_guarantee_card"
         app:strokeWidth="2dp">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/no_info_text"
+            android:id="@+id/no_guarantee_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:text="Bilmiyorum."
+            android:text="Garantisi yok."
             android:textAppearance="@style/TextAppearance.Material3.BodyLarge" />
     </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/cost_header"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginBottom="16dp"
-        android:text="Tramer tutarını giriniz:"
-        android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/text_layout"
-        app:layout_constraintEnd_toEndOf="@id/end_guideline"
-        app:layout_constraintStart_toStartOf="@id/start_guideline"
-        tools:visibility="visible" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_layout"
-        style="@style/Widget.Material3.TextInputLayout.FilledBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginBottom="36dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/continue_button"
-        app:layout_constraintEnd_toEndOf="@id/end_guideline"
-        app:layout_constraintStart_toStartOf="@id/start_guideline"
-        app:suffixText="TL"
-        tools:visibility="visible">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLength="6"
-            android:maxLines="1" />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/continue_button"

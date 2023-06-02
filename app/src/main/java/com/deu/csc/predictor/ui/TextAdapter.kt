@@ -64,5 +64,6 @@ class TextAdapter(
         Default, Table
     }
 
-    private val specNames = listOf("Marka :", "Seri :", "Model :", "Yıl :", "Kilometre :", "Tramer :", "Vites Tipi :", "Yakıt Tüketimi :")
+    private val specNames = listOf("Marka :", "Seri :", "Model :", "Yıl :", "Kilometre :", "Güç :", "Vites Tipi :", "Yıllık Mtv :", "Garanti")
+
 }

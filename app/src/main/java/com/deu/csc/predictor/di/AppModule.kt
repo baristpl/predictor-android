@@ -3,6 +3,8 @@ package com.deu.csc.predictor.di
 import android.content.Context
 import com.deu.csc.predictor.database.AppDao
 import com.deu.csc.predictor.database.AppDatabase
+import com.deu.csc.predictor.service.ClientService
+import com.deu.csc.predictor.service.ServiceGenerator
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,7 +16,10 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-
+    @Singleton
+    @Provides
+    fun provideClientService(): ClientService =
+        ServiceGenerator.createService(ClientService::class.java)
 
     @Provides
     fun provideDatabaseDao(database: AppDatabase): AppDao {

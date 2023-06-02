@@ -1,23 +1,10 @@
 package com.deu.csc.predictor.ui
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import android.util.TypedValue
 import android.view.View
-import androidx.annotation.AttrRes
-import androidx.annotation.ColorInt
-import androidx.annotation.ColorRes
-import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
-import androidx.core.widget.addTextChangedListener
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.deu.csc.predictor.R
-import com.deu.csc.predictor.databinding.FragmentKmSelectionBinding
-import com.deu.csc.predictor.databinding.FragmentTramerSelectionBinding
 import com.deu.csc.predictor.databinding.FragmentTransmissionSelectionBinding
-import com.google.android.material.card.MaterialCardView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,7 +30,7 @@ class TransmissionSelectionFragment :
     }
 
     private fun completeSelection() {
-        findNavController().navigate(R.id.fuelConsumeSelectionFragment)
+        findNavController().navigate(R.id.powerSelectionFragment)
     }
 
     private fun updateSelection(type: TransmissionType) {
@@ -81,8 +68,8 @@ class TransmissionSelectionFragment :
 
         fun toSpecValue(): String {
             return when (this) {
-                MANUEL -> "Manuel"
-                AUTOMATIC -> "Otomatik"
+                MANUEL -> "manuel"
+                AUTOMATIC -> "automatic"
                 else -> ""
             }
         }

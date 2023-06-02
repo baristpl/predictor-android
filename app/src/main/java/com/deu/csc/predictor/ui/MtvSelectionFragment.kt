@@ -5,12 +5,13 @@ import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.deu.csc.predictor.R
-import com.deu.csc.predictor.databinding.FragmentKmSelectionBinding
+import com.deu.csc.predictor.databinding.FragmentMtvSelectionBinding
+import com.deu.csc.predictor.databinding.FragmentPowerSelectionBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class KmSelectionFragment :
-    BaseFragment<FragmentKmSelectionBinding>(FragmentKmSelectionBinding::inflate) {
+class MtvSelectionFragment :
+    BaseFragment<FragmentMtvSelectionBinding>(FragmentMtvSelectionBinding::inflate) {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -28,9 +29,9 @@ class KmSelectionFragment :
     }
 
     private fun completeSelection() {
-        val km = binding.editText.text.toString()
-        mainViewModel.selectKm(km)
-        findNavController().navigate(R.id.guaranteeSelectionFragment)
+        val mtv = binding.editText.text.toString()
+        mainViewModel.selectMtv(mtv)
+        findNavController().navigate(R.id.loadingFragment)
     }
 
     private fun updateContinueButtonEnabled(hasAnyText: Boolean) {

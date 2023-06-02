@@ -1,31 +1,35 @@
 package com.deu.csc.predictor.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.deu.csc.predictor.database.AppDao
+import com.deu.csc.predictor.service.ClientService
+import com.deu.csc.predictor.service.PredictionRequest
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(private val appDao: AppDao) : ViewModel() {
+class MainViewModel @Inject constructor(
+    private val service: ClientService,
+    private val appDao: AppDao
+    ) : ViewModel() {
     private var brand: String? = null
     private var series: String? = null
     private var model: String? = null
     private var km: String? = null
     private var year: String? = null
-    private var fuelConsumption: String? = null
+    private var power: String? = null
+    var hasGuarantee: Boolean? = null
+    private var mtv: String? = null
 
-    var tramer = TramerSelectionFragment.Tramer.NONE
     var transmission = TransmissionSelectionFragment.TransmissionType.NONE
-    var tramerCost: String? = null
 
 
     private val _predictionResultSharedFlow = MutableSharedFlow<String>()
@@ -65,23 +69,39 @@ class MainViewModel @Inject constructor(private val appDao: AppDao) : ViewModel(
         this.year = year
     }
 
-    fun selectFuelConsumption(consumption: String) {
-        fuelConsumption = consumption
+    fun selectPower(power: String) {
+       this.power = power
+
+    }
+
+    fun selectMtv(mtv: String) {
+        this.mtv = mtv
         predicate()
     }
 
-    fun completeTramerSelection(cost: String?) {
-        tramerCost = cost
-    }
-
     private fun predicate() {
+        val guarantee = if (hasGuarantee == true) "1" else "0"
+        val request = PredictionRequest(
+            series = series!!,
+            model = model!!,
+            year = year!!,
+            kilometer = km!!,
+            power = power!!,
+            transmission = transmission.toSpecValue(),
+            mtv = mtv!!,
+            guarantee = guarantee
+        )
+
         viewModelScope.launch {
-            delay(5000)
-            _predictionResultSharedFlow.emit("100.000")
+            val response = service.getPricePrediction(request)
+            val result = response.body()?.price.toString()
+            _predictionResultSharedFlow.emit(result)
         }
     }
 
     fun gatherSpecValues(): List<String> {
-        return listOf(brand!!, series!!, model!!, year!!, km!!, tramer.toSpecValue(), transmission.toSpecValue(), fuelConsumption!!)
+        val guarantee = if (hasGuarantee == true) "Garantisi var" else "Garantisi yok"
+        return listOf(brand!!, series!!, model!!, year!!, km!!, power!!, transmission.toSpecValue(), mtv!!, guarantee)
     }
+
 }
